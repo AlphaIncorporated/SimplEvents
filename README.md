@@ -1,3 +1,5 @@
 # SimplEvents
-Hello this is our Secondary 4 School of Science and Techonology Coursework project
-This app was created with love by Alfred Kang, Laavanya Sundaravel, Lai Wan Lin
+### Developed by Alfred Kang, Laavanya Sundaravel, Lai Wan Lin
+Made with ❤️ by Alfred Kang, Laavanya Sundaravel, Lai Wan Lin using Python.  
+  
+  School of Science and Technology Computing Coursework 2022
