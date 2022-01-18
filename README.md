@@ -9,5 +9,4 @@ Made with ❤️ by Alfred Kang, Laavanya Sundaravel, Lai Wan Lin using Python, 
 # 
 ## Credits:
 
-  - Tom Schimansky on Github: Tkinter custom button 
-  https://github.com/TomSchimansky/GuitarTuner/blob/master/documentation/tkinter_custom_button.py
+  - .
