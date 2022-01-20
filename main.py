@@ -1,5 +1,6 @@
 from tkinter import *
 
+#screen
 self = Tk()
 self.geometry('2304x1440')
 self.title('SimplEvents')
@@ -7,19 +8,22 @@ self.grid_columnconfigure(0, weight = 1)
 self.grid_rowconfigure(0, weight = 1)
 self.attributes('-fullscreen', True)
 
+#mainFrame
 mainframe = Frame(self, bg = 'red')
 mainframe.pack(expand = True, fill = BOTH)
 
+#grid configs
 mainframe.grid_rowconfigure(0, weight=0) # For row 0
 mainframe.grid_rowconfigure(1, weight=2) # For row 1
 mainframe.grid_columnconfigure(0, weight=1) # For column 0
 mainframe.grid_columnconfigure(1, weight=1) # For column 1
 
-#image declaring
+#mainframe image declaring
 calendarimg = PhotoImage(file = "./pictures/calenderbuttonpic.png")
 neweventimg = PhotoImage(file = "./pictures/neweventbuttonpic.png")
 aboutusimg = PhotoImage(file = "./pictures/aboutusbuttonpic.png")
 
+#mainframe buttons
 calendarbutton = Button(mainframe, text = "Calendar", width = 965, height = 1135, borderwidth=0, image = calendarimg, bg = 'white')
 calendarbutton.grid(row = 0, column = 0, rowspan = 2)
 
