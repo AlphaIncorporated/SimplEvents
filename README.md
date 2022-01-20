@@ -1,4 +1,5 @@
 # SimplEvents
+###### events made simpler
 ### Developed by Alfred Kang, Laavanya Sundaravel, Lai Wan Lin
 Made with ❤️ by Alfred Kang, Laavanya Sundaravel, Lai Wan Lin using Python, Tkinter  
   
