@@ -1,15 +1,15 @@
 from tkinter import *
 
 #screen
-self = Tk()
-self.geometry('2304x1440')
-self.title('SimplEvents')
-self.grid_columnconfigure(0, weight = 1)
-self.grid_rowconfigure(0, weight = 1)
-self.attributes('-fullscreen', True)
+root = Tk()
+root.geometry('2304x1440')
+root.title('SimplEvents')
+root.grid_columnconfigure(0, weight = 1)
+root.grid_rowconfigure(0, weight = 1)
+root.attributes('-fullscreen', True)
 
 #mainFrame
-mainframe = Frame(self, bg = 'red')
+mainframe = Frame(root, bg = 'red')
 mainframe.pack(expand = True, fill = BOTH)
 
 #grid configs
@@ -33,4 +33,4 @@ neweventbutton.grid(row = 0, column = 1)
 aboutusbutton = Button(mainframe, text = 'About Us', width = 957, height = 560, borderwidth=0, image = aboutusimg, bg = 'white')
 aboutusbutton.grid(row = 1, column = 1)
 
-self.mainloop()
+root.mainloop()
