@@ -19,7 +19,7 @@ class App():
         self.mainframe.grid_rowconfigure(0, weight=0) # For row 0
         self.mainframe.grid_rowconfigure(1, weight=2) # For row 1
         self.mainframe.grid_columnconfigure(0, weight=1) # For column 0
-        self.mainframe.grid_columnconfigure(1, weight=1) # For column 1
+        self.mainframe.grid_columnconfigure(1, weight=1) # For column 1 
 
         #change frame functions
         def changetocalendar(self): 
