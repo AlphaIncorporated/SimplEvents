@@ -1,14 +1,11 @@
 from tkinter import *
-
-root = Tk()
-root.geometry('2304x1440')
-root.title('SimplEvents')
-root.grid_columnconfigure(0, weight = 1)
-root.grid_rowconfigure(0, weight = 1)   
-root.attributes('-fullscreen', True)
     
-calendarframe = Frame(root)
-calendarframe.pack(expand = True, fill = BOTH)
+
+def calendarScreen(self):
+    calendarframe = Frame(self.mainFrame)
+    calendarframe.pack(expand = True, fill = BOTH)
+    tempText = Label(calendarframe, text="This is a test") # Can be removed (Ethan)
+    tempText.pack()
 
 #def switchtomainframe():
     #root.destroy()
@@ -16,5 +13,3 @@ calendarframe.pack(expand = True, fill = BOTH)
 
 #root.calendarbackbutton = Button(calendarframe, text = "Back")
 #root.calendarbackbutton.grid(row = 0, column = 0)
-
-root.mainloop()
