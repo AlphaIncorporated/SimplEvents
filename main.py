@@ -10,14 +10,14 @@ root.grid_columnconfigure(0, weight = 1)
 root.grid_rowconfigure(0, weight = 1)
 root.attributes('-fullscreen', True)
 
-root.mainFrame = Frame(root) # A new frame to 'govern' and contain all other frames (Ethan)
+root.mainFrame = Frame(root) # A new frame to 'govern' and contain all other frames
 root.mainFrame.pack()
 root.uiFrame = Frame(root.mainFrame, bg = 'red')
 root.uiFrame.pack(expand = True, fill = BOTH)
 
 def switchtocalendarframe(root):
     root.uiFrame.pack_forget()
-    calendarScreen(root) # Calls the Function in CalendarScreen.py (Ethan)
+    calendarScreen(root) # Calls the Function in CalendarScreen.py
 
 root.uiFrame.grid_rowconfigure(0, weight=0) # For row 0
 root.uiFrame.grid_rowconfigure(1, weight=2) # For row 1
