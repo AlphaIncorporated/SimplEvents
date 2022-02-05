@@ -2,7 +2,7 @@ print("init newEvent page start")
 from tkinter import *
 
 root = Tk()
-
+# MY SMALL CHANGE
 #function for the text aftet you enter the date
 # def enteredDate():
 #     enteredDateLbl = Label(root,text="the date you entered is: "+str(dateInpt.get()))
