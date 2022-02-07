@@ -4,11 +4,15 @@ import tkinter as tk
 from calendarscreen import calendarScreen
 from newEventForm import newEventForm
 root = Tk()
-# root.geometry('2304x1440')
+screenwidth = root.winfo_screenwidth()
+screenheight = root.winfo_screenheight()
+
+root.geometry("1800x1000")
 root.title('SimplEvents')
 root.grid_columnconfigure(0, weight = 1)
 root.grid_rowconfigure(0, weight = 1)
-root.attributes('-fullscreen', True)
+root.configure(background='white')
+#root.attributes('-fullscreen', True)
 
 def new_func(root):
     root.mainFrame = Frame(root) # A new frame to 'govern' and contain all other frames
@@ -23,8 +27,9 @@ def switchtocalendarframe(root):
     calendarScreen(root)
 def switchtoneweventframe(root):
     root.uiFrame.pack_forget()
-    calendarScreen(root)
     newEventFormObj = newEventForm(root).place(in_=root, anchor="c", relx=.5, rely=.5, relheight=1, relwidth=1)
+    newEventFormObj()
+    
 root.uiFrame.grid_rowconfigure(0, weight=0) # For row 0
 root.uiFrame.grid_rowconfigure(1, weight=2) # For row 1
 root.uiFrame.grid_columnconfigure(0, weight=1) # For column 0

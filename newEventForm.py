@@ -92,7 +92,7 @@ class newEventForm(tk.Frame):
             font=("Arial", 58))
         titleLbl.pack(side='bottom')
         backBtn = tk.Button(
-            headerFrame,
+            Frame,
             text='Back',
             bg="white",
             fg='blue',

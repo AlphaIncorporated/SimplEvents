@@ -6,8 +6,10 @@ def calendarScreen(self):
     def back(self, calendarframe):
         self.uiFrame.pack(expand = True, fill = BOTH)
         calendarframe.pack_forget()
-    length=self.winfo_screenwidth()/10.5
-    height=self.winfo_screenheight()/10.5
+        
+    # length=self.winfo_screenwidth()/10.5
+    # height=self.winfo_screenheight()/10.5
+    
     calendarframe = Frame(self.mainFrame, bg = 'white')
     calendarframe.pack(expand = True, fill = BOTH)
 
@@ -17,7 +19,7 @@ def calendarScreen(self):
     currentYear = datetime.now().year
     
     #back button
-    backbutton = Button(calendarframe, bg = 'white', text = 'Back', font = ("Ariel, 50"), fg = "black", borderwidth = 0 ,command=(lambda: back(self,calendarframe)))
+    backbutton = Button(calendarframe, bg = 'white', text = '< Back', font = ("Ariel, 20"), fg = "blue", borderwidth = 0 ,command=(lambda: back(self,calendarframe)))
     backbutton.grid(row = 0, column = 0)
 
     #Calendar Title
@@ -25,23 +27,23 @@ def calendarScreen(self):
     calendartitle.grid(row = 0, column = 1, columnspan=4, pady = 10)
 
     #neweventbutton
-    calendartoneweventbutton = Button(calendarframe, text = "New Event", width = 44, height = 5)
+    calendartoneweventbutton = Button(calendarframe, text = "New Event", width = 44, height = 5, padx = 5)
     calendartoneweventbutton.grid(row = 0, column = 5, columnspan=2, sticky = E, pady = 10)
 
     #Day of the Week Label
-    calendardayslabelmonday = Label(calendarframe, text = 'Monday', font = ("Ariel, 30"), bg = 'white', fg = "black")
+    calendardayslabelmonday = Label(calendarframe, text = 'Monday', font = ("Ariel, 20"), bg = 'white', fg = "black")
     calendardayslabelmonday.grid(row = 2, column = 0)
-    calendardayslabeltuesday = Label(calendarframe, text = 'Tuesday', font = ("Ariel, 30"), bg = 'white', fg = "black")
+    calendardayslabeltuesday = Label(calendarframe, text = 'Tuesday', font = ("Ariel, 20"), bg = 'white', fg = "black")
     calendardayslabeltuesday.grid(row = 2, column = 1)
-    calendardayslabelwednesday = Label(calendarframe, text = 'Wednesday', font = ("Ariel, 30"), bg = 'white', fg = "black")
+    calendardayslabelwednesday = Label(calendarframe, text = 'Wednesday', font = ("Ariel, 20"), bg = 'white', fg = "black")
     calendardayslabelwednesday.grid(row = 2, column = 2)
-    calendardayslabelthursday = Label(calendarframe, text = 'Thursday', font = ("Ariel, 30"), bg = 'white', fg = "black")
+    calendardayslabelthursday = Label(calendarframe, text = 'Thursday', font = ("Ariel, 20"), bg = 'white', fg = "black")
     calendardayslabelthursday.grid(row = 2, column = 3)
-    calendardayslabelfriday = Label(calendarframe, text = 'Friday', font = ("Ariel, 30"), bg = 'white', fg = "black")
+    calendardayslabelfriday = Label(calendarframe, text = 'Friday', font = ("Ariel, 20"), bg = 'white', fg = "black")
     calendardayslabelfriday.grid(row = 2, column = 4)
-    calendardayslabelsaturday = Label(calendarframe, text = 'Saturday', font = ("Ariel, 30"), bg = 'white', fg = "black")
+    calendardayslabelsaturday = Label(calendarframe, text = 'Saturday', font = ("Ariel, 20"), bg = 'white', fg = "black")
     calendardayslabelsaturday.grid(row = 2, column = 5)
-    calendardayslabelsunday = Label(calendarframe, text = 'Sunday', font = ("Ariel, 30"), bg = 'white', fg = "black")
+    calendardayslabelsunday = Label(calendarframe, text = 'Sunday', font = ("Ariel, 20"), bg = 'white', fg = "black")
     calendardayslabelsunday.grid(row = 2, column = 6)
     
     #making daybuttons
@@ -51,7 +53,7 @@ def calendarScreen(self):
         calendarcolumn = 0
         for x in range(1, 29):
             day[x] = x + 1  
-            day[x] = Button(calendarframe, text = x, width = int(length/7), height = int(height/10), borderwidth = 0, bg = 'white')
+            day[x] = Button(calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white')
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
                 calendarcolumn = 0
