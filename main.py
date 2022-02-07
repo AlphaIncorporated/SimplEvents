@@ -19,7 +19,7 @@ def new_func(root):
 
 new_func(root)
 root.mainFrame.pack()
-root.uiFrame = Frame(root.mainFrame, bg = 'red')
+root.uiFrame = Frame(root.mainFrame, bg = 'white')
 root.uiFrame.pack(expand = True, fill = BOTH)
 
 def switchtocalendarframe(root):
