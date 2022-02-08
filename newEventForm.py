@@ -5,7 +5,8 @@ from tkinter import IntVar, messagebox
 
 class newEventForm(tk.Frame):
 
-    def prevPage(self):
+    def prevPage(self, newEventForm):
+        self.uiFrame.pack(expand = True, fill = BOTH)
         self.destroy()
 
     def __init__(self,parent):
@@ -92,7 +93,7 @@ class newEventForm(tk.Frame):
             font=("Arial", 58))
         titleLbl.pack(side='bottom')
         backBtn = tk.Button(
-            Frame,
+            headerFrame,
             text='Back',
             bg="white",
             fg='blue',
