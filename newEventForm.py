@@ -5,8 +5,7 @@ from tkinter import IntVar, messagebox
 
 class newEventForm(tk.Frame):
 
-    def prevPage(self, newEventForm):
-        self.uiFrame.pack(expand = True, fill = BOTH)
+    def prevPage(self):
         self.destroy()
 
     def __init__(self,parent):
@@ -49,7 +48,7 @@ class newEventForm(tk.Frame):
                 f.seek(0)
                 json.dump(eventCollectionData, f, indent=4)
                 f.truncate()    
-            self.prevPage()
+            self.destroy()
             
 
 
