@@ -1,5 +1,6 @@
 from tkinter import *
-from calendar import monthrange
+from calendar import *
+import calendar
 from datetime import datetime
 from  newEventForm  import newEventForm
 def calendarScreen(self):
@@ -10,8 +11,6 @@ def calendarScreen(self):
         self.uiFrame.pack_forget()
         newEventFormObj = newEventForm(self).place(in_=self, anchor="c", relx=.5, rely=.5, relheight=1, relwidth=1)
         newEventFormObj()
-    # length=self.winfo_screenwidth()/10.5
-    # height=self.winfo_screenheight()/10.5
     
     calendarframe = Frame(self.mainFrame, bg = 'white')
     calendarframe.pack(expand = True, fill = BOTH)
@@ -20,6 +19,24 @@ def calendarScreen(self):
     currentDay = datetime.now().day
     currentMonth = datetime.now().month
     currentYear = datetime.now().year
+  
+    first_weekday, num_days_in_month = calendar.monthrange(currentYear, currentMonth)
+
+    #finding out first day of month
+    if (calendar.day_name[first_weekday]) == "Monday":
+        firstdaycolumn = 0
+    elif (calendar.day_name[first_weekday]) == "Tuesday":
+        firstdaycolumn = 1
+    elif (calendar.day_name[first_weekday]) == "Wednesday":
+        firstdaycolumn = 2
+    elif (calendar.day_name[first_weekday]) == "Thursday":
+        firstdaycolumn = 3
+    elif (calendar.day_name[first_weekday]) == "Friday":
+        firstdaycolumn = 4
+    elif (calendar.day_name[first_weekday]) == "Saturday":
+        firstdaycolumn = 5
+    elif (calendar.day_name[first_weekday]) == "Sunday":
+        firstdaycolumn = 6
     
     #back button
     backbutton = Button(calendarframe, bg = 'white', text = '< Back', font = ("Ariel, 30"), fg = "blue", borderwidth = 0 ,command=(lambda: back(self,calendarframe)))
@@ -49,14 +66,29 @@ def calendarScreen(self):
     calendardayslabelsunday = Label(calendarframe, text = 'Sunday', font = ("Ariel, 20"), bg = 'white', fg = "black")
     calendardayslabelsunday.grid(row = 2, column = 6)
     
+    #frame to display events on day pressed
+    def createEventDayFrame(self, calendarframe):
+        calendarframe.pack_forget()
+        eventDayFrame = Frame(self.mainFrame, bg = 'white')
+        eventDayFrame.pack()
+        def eventDayFrameBackFunc(self, calendarScreen):
+            eventDayFrame.pack_forget()
+            calendarScreen(self.mainframe)
+        eventDayFrameBack = Button(eventDayFrame, text = "< Back", bg = 'white', fg = 'blue', font = ("Ariel, 20"), borderwidth=0, command = lambda: eventDayFrameBackFunc(self, calendarScreen))
+        eventDayFrameBack.grid(row = 0, column = 0, sticky = W)
+        eventsDate = Label(eventDayFrame, text = "Events on this day", bg = 'white', fg = 'black', font = ("Ariel, 30"))
+        eventsDate.grid(row = 0, column = 1, columnspan = 7, pady = 20, sticky = '')
+        eventsInDay = Label(eventDayFrame, text = "<insert events on day clicked here>", font = ("Ariel, 30"), bg = 'white', fg = 'black')
+        eventsInDay.grid(row = 1, column = 1, columnspan = 7, sticky = '')
+        
     #making daybuttons
     if monthrange(currentYear, currentMonth)[1] == 28:
         day = dict()
         calendarrow = 3
-        calendarcolumn = 0
+        calendarcolumn = firstdaycolumn
         for x in range(1, 29):
-            day[x] = x + 1  
-            day[x] = Button(calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white')
+            day[x] = x + 1
+            day[x] = Button(calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda: createEventDayFrame(self, calendarframe))
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
                 calendarcolumn = 0
@@ -69,10 +101,10 @@ def calendarScreen(self):
     if monthrange(currentYear, currentMonth)[1] == 29:
         day = dict()
         calendarrow = 3
-        calendarcolumn = 0
+        calendarcolumn = firstdaycolumn
         for x in range(1, 30):
             day[x] = x + 1
-            day[x] = Button(calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white')
+            day[x] = Button(calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda: createEventDayFrame(self, calendarframe))
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
                 calendarcolumn = 0
@@ -85,10 +117,10 @@ def calendarScreen(self):
     if monthrange(currentYear, currentMonth)[1] == 30:
         day = dict()
         calendarrow = 3
-        calendarcolumn = 0
+        calendarcolumn = firstdaycolumn
         for x in range(1, 31):
             day[x] = x + 1
-            day[x] = Button(calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white')
+            day[x] = Button(calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda: createEventDayFrame(self, calendarframe))
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
                 calendarcolumn = 0
@@ -101,10 +133,10 @@ def calendarScreen(self):
     if monthrange(currentYear, currentMonth)[1] == 31:
         day = dict()
         calendarrow = 3
-        calendarcolumn = 0
+        calendarcolumn = firstdaycolumn
         for x in range(1, 32):
             day[x] = x + 1
-            day[x] = Button(calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white')
+            day[x] = Button(calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda: createEventDayFrame(self, calendarframe))
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
                 calendarcolumn = 0

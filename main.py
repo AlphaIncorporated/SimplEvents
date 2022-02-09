@@ -32,7 +32,6 @@ def switchtoneweventframe(root):
 def switchToAboutUsframe(root):
     root.uiFrame.pack_forget()
     aboutUsObj = aboutUs(root).place(in_=root, anchor="c", relx=.5, rely=.5, relheight=1, relwidth=1)
-    aboutUsObj()
     
 root.uiFrame.grid_rowconfigure(0, weight=0) # For row 0
 root.uiFrame.grid_rowconfigure(1, weight=2) # For row 1

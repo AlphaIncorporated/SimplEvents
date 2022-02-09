@@ -5,12 +5,8 @@ from tkinter import IntVar, messagebox
 
 class newEventForm(tk.Frame):
 
-<<<<<<< HEAD
     def prevPage(self, newEventForm):
         #self.uiFrame.pack(expand = True, fill = BOTH)
-=======
-    def prevPage(self):
->>>>>>> 5fdcff4556f0b1a9750e7aece6d949901c7e9a5d
         self.destroy()
 
     def __init__(self,parent):
