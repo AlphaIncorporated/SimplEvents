@@ -1,6 +1,6 @@
 from tkinter import *
 import tkinter as tk
-
+from aboutUs import aboutUs
 from calendarscreen import calendarScreen
 from newEventForm import newEventForm
 root = Tk()
@@ -29,6 +29,10 @@ def switchtoneweventframe(root):
     root.uiFrame.pack_forget()
     newEventFormObj = newEventForm(root).place(in_=root, anchor="c", relx=.5, rely=.5, relheight=1, relwidth=1)
     newEventFormObj()
+def switchToAboutUsframe(root):
+    root.uiFrame.pack_forget()
+    aboutUsObj = aboutUs(root).place(in_=root, anchor="c", relx=.5, rely=.5, relheight=1, relwidth=1)
+    aboutUsObj()
     
 root.uiFrame.grid_rowconfigure(0, weight=0) # For row 0
 root.uiFrame.grid_rowconfigure(1, weight=2) # For row 1
@@ -53,7 +57,14 @@ neweventbutton = Button(
     command = lambda: switchtoneweventframe(root))
 neweventbutton.grid(row = 0, column = 1)
 
-aboutusbutton = Button(root.uiFrame, text = 'About Us', width = 957, height = 560, borderwidth=0, image = aboutusimg, bg = 'white')
+aboutusbutton = Button(root.uiFrame, 
+    text = 'About Us', 
+    width = 957, 
+    height = 560, 
+    borderwidth=0, 
+    image = aboutusimg, 
+    bg = 'white',
+    command= lambda:switchToAboutUsframe(root))
 aboutusbutton.grid(row = 1, column = 1)
 
 root.mainloop()

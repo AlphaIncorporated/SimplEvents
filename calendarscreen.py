@@ -1,12 +1,15 @@
 from tkinter import *
 from calendar import monthrange
 from datetime import datetime
-
+from  newEventForm  import newEventForm
 def calendarScreen(self):
     def back(self, calendarframe):
         self.uiFrame.pack(expand = True, fill = BOTH)
         calendarframe.pack_forget()
-        
+    def switchtoneweventframe(self):
+        self.uiFrame.pack_forget()
+        newEventFormObj = newEventForm(self).place(in_=self, anchor="c", relx=.5, rely=.5, relheight=1, relwidth=1)
+        newEventFormObj()
     # length=self.winfo_screenwidth()/10.5
     # height=self.winfo_screenheight()/10.5
     
@@ -27,7 +30,7 @@ def calendarScreen(self):
     calendartitle.grid(row = 0, column = 1, columnspan=4, pady = 10)
 
     #neweventbutton
-    calendartoneweventbutton = Button(calendarframe, text = "New Event", width = 44, height = 5, padx = 5)
+    calendartoneweventbutton = Button(calendarframe, text = "New Event", width = 44, height = 5, padx = 5,command = lambda: switchtoneweventframe(self))
     calendartoneweventbutton.grid(row = 0, column = 5, columnspan=2, sticky = E, pady = 10)
 
     #Day of the Week Label
