@@ -22,7 +22,7 @@ def calendarScreen(self):
     currentYear = datetime.now().year
     
     #back button
-    backbutton = Button(calendarframe, bg = 'white', text = '< Back', font = ("Ariel, 20"), fg = "blue", borderwidth = 0 ,command=(lambda: back(self,calendarframe)))
+    backbutton = Button(calendarframe, bg = 'white', text = '< Back', font = ("Ariel, 30"), fg = "blue", borderwidth = 0 ,command=(lambda: back(self,calendarframe)))
     backbutton.grid(row = 0, column = 0)
 
     #Calendar Title
