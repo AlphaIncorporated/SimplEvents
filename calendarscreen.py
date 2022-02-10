@@ -19,7 +19,7 @@ def calendarScreen(self):
     currentDay = datetime.now().day
     currentMonth = datetime.now().month
     currentYear = datetime.now().year
-  
+
     first_weekday, num_days_in_month = calendar.monthrange(currentYear, currentMonth)
 
     #finding out first day of month
@@ -71,9 +71,9 @@ def calendarScreen(self):
         calendarframe.pack_forget()
         eventDayFrame = Frame(self.mainFrame, bg = 'white')
         eventDayFrame.pack()
-        def eventDayFrameBackFunc(self, calendarScreen):
+        def eventDayFrameBackFunc(self):
             eventDayFrame.pack_forget()
-            calendarScreen(self.mainframe)
+            self.calendarScreen(self.mainframe)
         eventDayFrameBack = Button(eventDayFrame, text = "< Back", bg = 'white', fg = 'blue', font = ("Ariel, 20"), borderwidth=0, command = lambda: eventDayFrameBackFunc(self, calendarScreen))
         eventDayFrameBack.grid(row = 0, column = 0, sticky = W)
         eventsDate = Label(eventDayFrame, text = "Events on this day", bg = 'white', fg = 'black', font = ("Ariel, 30"))
