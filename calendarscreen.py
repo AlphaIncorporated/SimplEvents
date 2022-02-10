@@ -1,9 +1,25 @@
+'''
+=======================================================
+author: Alfred Kang
+summary:
+creates interactable calendar(only for current month)
+Has buttons to:
+- Change to New Event frame
+- View events added for date pressed
+- Go back to previous frame
+features:
+- Able to identify current month, length of month, first day of month to reformat the calendar
+- Number of date buttons change according to length of current month
+- Every button leads to a frame where the label displays the events for that current day(and it has a back button)
+=======================================================
+'''
 from tkinter import *
 from calendar import *
 import calendar
 import json
 from datetime import datetime
 from  newEventForm  import newEventForm
+
 def calendarScreen(self):
     def back(self, calendarframe):
         self.uiFrame.pack(expand = True, fill = BOTH)
@@ -20,10 +36,11 @@ def calendarScreen(self):
     currentMonth = datetime.now().month
     currentYear = datetime.now().year
     
+    monthnow = ''
     if currentMonth == "1":
         monthnow = 'January'
     elif currentMonth == '2':
-        monthnow = 'February'
+        monthnow = str('February')
     elif currentMonth == '3':
         monthnow = 'March'
     elif currentMonth == '4':
@@ -110,12 +127,13 @@ def calendarScreen(self):
             for event in eventCollectionData["events"]:
                 # if (event["startDate"]==eventRetrieve['startDate']):
                 # print(int(eventRetrieve['startDate']),int(eventRetrieve['endDate'])+1)
-                if buttonname in range(int(event['startDate']),int(event['endDate'])+1):
-                    print("binkbonk")
-                    retrievedEvents += "Event:\n" +event["eventName"] +"\n"+"Description:\n"+event["eventDesc"]+"\n\n"
-            print(retrievedEvents)
+                if event['endDate'] != "":
+                    if event['startDate'] != "":
+                        if buttonname in range(int(event['startDate']),int(event['endDate'])+1):
+                            print("binkbonk")
+                            retrievedEvents += "Event:\n" +event["eventName"] +"\n"+"Description:\n"+event["eventDesc"]+"\n\n"
+                    
 
-        
         def eventDayFrameBackFunc(self, eventDayFrame):
             eventDayFrame.pack_forget()
             self.calendarframe.pack(expand = True, fill = BOTH)

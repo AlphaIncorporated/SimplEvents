@@ -17,6 +17,7 @@ features:
 import tkinter as tk #
 import os.path #helps pathing to assets
 import json #allows conversion to json storage format
+from budget import budgetClss
 from tkinter import IntVar, messagebox 
 #IntVar allows use of tkinter integer variables, messagebox allows a message box popup to be made
 
@@ -38,21 +39,29 @@ class newEventForm(tk.Frame):
         dateStr = tk.StringVar()
         dateStr.set("Date:")
         
-        ##define functions
-
+        ##define function
+        
         #defines function  for saving form
+        def switchBudgetFrame(self):
+            budgetObj = budgetClss(self).place(
+                in_=self, 
+                anchor="c", 
+                relx=.5, 
+                rely=.5, 
+                relheight=1, 
+                relwidth=1)
         def saveForm():
             print('saveForm')
             #creating dict obj containing the users input
             formData = {}
             formData['eventName']=nameEntry.get() 
-            formData['startDate']=date1Entry.get()
+            formData['startDate']=optionMenu1Var.get()
             formData['eventDesc']=descEntry.get()
             #sets the end date of the event to the start date in one day events
             if (isMultDay.get()):
-                formData['endDate']=date2Entry.get()
+                formData['endDate']=optionMenu2Var.get()
             else:
-                formData['endDate']=date1Entry.get()
+                formData['endDate']=optionMenu1Var.get()
             #makes new eventCollection.json file if there isn't already an existing one
             if not os.path.isfile("./database/eventCollection.json"): ##utiliseies is 
                 with open("./database/eventCollection.json", "x") as outfile: ##outfile is file object 
@@ -82,9 +91,17 @@ class newEventForm(tk.Frame):
                 json.dump(eventCollectionData, f, indent=4)
                 
                 #removes the old data after the file pointer
-                f.truncate()    
+                f.truncate()   
+                 
+            # switchToBudgetFrame = tk.Button(bodyFrame, text = 'Plan Budget', bg = 'white', fg = 'black', font=("Arial", 22))
+            # switchToBudgetFrame.grid(row = 0, column = 4, pady = 5)
             #closes form
-            self.destroy()
+            # self.destroy()
+            # budgetWindow(newEventForm)
+
+            #its not a window anymore, change this into a func later and define it at top
+            switchBudgetFrame(self)
+            
             
     
             
@@ -101,20 +118,17 @@ class newEventForm(tk.Frame):
                     bd=2,
                     fg='black',
                     font=("Arial", 22))
-                global date2Entry
-                date2Entry = tk.Entry(bodyFrame,
-                    bg="white",
-                    bd=2,
-                    fg='black',
-                    font=("Arial", 22),
-                    relief='sunken')
+                global optionMenu2Var
+                optionMenu2Var = tk.StringVar(self) 
+                optionMenu2Var.set("1")
+                date2OptionMenu= tk.OptionMenu(bodyFrame, optionMenu2Var, "1","2","3")
                 #positions the label and entry into the form
                 date2Label.grid(row=2,column=2, sticky='w', pady=5)
-                date2Entry.grid(row=2,column=3, sticky='we', pady=5)
+                date2OptionMenu.grid(row=2,column=3, sticky='we', pady=5)
             else:
                 dateStr.set("Date:")
                 date2Label.destroy()
-                date2Entry.destroy()
+                date2OptionMenu.destroy()
         #headerframe to put title label and back button
         headerFrame = tk.Frame(
             self, 
@@ -159,18 +173,21 @@ class newEventForm(tk.Frame):
         bodyFrame.grid_columnconfigure(3, weight=1) # For column 3
 
         #label displayed next to nameEntry to give context to nameEntry
+        
+        
+        
         nameLabel = tk.Label(bodyFrame, text="Event Name:",
             bg="white",
             bd=2,
             fg='black',
-            font=("Arial", 22))
+            font=("Arial", 15))
         
         #Entry for users to input name of the event
         nameEntry = tk.Entry(bodyFrame,
             bg="white",
             bd=2,
             fg='black',
-            font=("Arial", 22),
+            font=("Arial", 15),
             relief='sunken')
         nameEntry.focus()
         nameLabel.grid(row=0,column=0, sticky='w', pady=5)
@@ -182,41 +199,42 @@ class newEventForm(tk.Frame):
             bg="white",
             bd=2,
             fg='black',
-            font=("Arial", 22),
+            font=("Arial", 15),
             variable=isMultDay,
             command=isMultDayFunc)
         isMultDayCheckBtn.deselect()
         isMultDayCheckBtn.grid(row=1, column=1, columnspan=3, sticky='w', pady=5)
         # ROW 2-------------------------------------------------------------------------------------------------
-        #label displayed next to date1Entry to give Entry context
+        #label displayed next to date1OptionMenu to give Entry context
         date1Label = tk.Label(bodyFrame, textvariable=dateStr,
             bg="white",
             bd=2,
             fg='black',
-            font=("Arial", 22))
+            font=("Arial", 15))
         #Entry for user to input starting date for event
-        date1Entry = tk.Entry(bodyFrame,
-            bg="white",
-            bd=2,
-            fg='black',
-            font=("Arial", 22),
-            relief='sunken')
+#===================================super important change!!!=====================================================================
+        ####date1Entry becomes date1OptionMenu, 
+        ###but since optionMenus cant be called, the var is optionMenu1Var
+        optionMenu1Var = tk.StringVar(self) 
+        optionMenu1Var.set("1")
+        date1OptionMenu = tk.OptionMenu(bodyFrame,
+            optionMenu1Var, "1",  "2", "3")
         date1Label.grid(row=2,column=0, sticky='w', pady=5)
-        date1Entry.grid(row=2,column=1, sticky='we', pady=5)
+        date1OptionMenu.grid(row=2,column=1, sticky='we', pady=5)
         # ROW 3-------------------------------------------------------------------------------------------------
         #label displayed next to descEntry to give Entry context
         descLabel = tk.Label(bodyFrame, text="Description:",
             bg="white",
             bd=2,
             fg='black',
-            font=("Arial", 22))
+            font=("Arial", 15))
 
         #Entry for user to input short description for event
         descEntry = tk.Entry(bodyFrame,
             bg="white",
             bd=2,
             fg='black',
-            font=("Arial", 22),
+            font=("Arial", 15),
             relief='sunken')
         descLabel.grid(row=3,column=0, sticky='w', pady=5)
         descEntry.grid(row=3,column=1, columnspan=3, sticky='we', pady=5)

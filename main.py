@@ -1,8 +1,24 @@
+'''
+=======================================================
+author: Alfred Kang
+summary:
+create root window and main page
+form will allow users to select and switch between app features :
+- Calendar
+- New Event
+- About Us
+features:
+- Attempted to make UI look good using and resizing buttons
+- root.uiFrame
+=======================================================
+'''
 from tkinter import *
 import tkinter as tk
 from aboutUs import aboutUs
 from calendarscreen import calendarScreen
 from newEventForm import newEventForm
+#TEMP TO TEST BUDGET FRAME
+from budget import budgetClss
 root = Tk()
 screenwidth = root.winfo_screenwidth()
 screenheight = root.winfo_screenheight()
@@ -30,8 +46,22 @@ def switchtoneweventframe(root):
     newEventFormObj = newEventForm(root).place(in_=root, anchor="c", relx=.5, rely=.5, relheight=1, relwidth=1)
     
 def switchToAboutUsframe(root):
-    
-    aboutUsObj = aboutUs(root).place(in_=root, anchor="c", relx=.5, rely=.5, relheight=1, relwidth=1)
+    aboutUsObj = aboutUs(root).place(
+        in_=root, 
+        anchor="c", 
+        relx=.5, 
+        rely=.5, 
+        relheight=1, 
+        relwidth=1)
+#TEMP FUNC TO TEST BUDGET FRAME
+# def switchBudgetFrame(root):
+#     budgetObj = budgetClss(root).place(
+#         in_=root, 
+#         anchor="c", 
+#         relx=.5, 
+#         rely=.5, 
+#         relheight=1, 
+#         relwidth=1)
 
 root.uiFrame.grid_rowconfigure(0, weight=0) # For row 0
 root.uiFrame.grid_rowconfigure(1, weight=2) # For row 1

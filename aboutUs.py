@@ -1,3 +1,16 @@
+'''
+=======================================================
+author: Alfred Kang, Lai Wan Lin 
+summary:
+Shows a simple description about us
+form will allow users to see:
+- more about this app
+- more about why we made this app 
+- more about us
+features:
+- back button
+=======================================================
+'''
 ##stuff needed for bout us page: back button, desc box, title label, 
 
 import tkinter as tk
@@ -46,17 +59,17 @@ class aboutUs(tk.Frame):
         backBtn.place(anchor='nw', x=20, y=20)
         bodyFrame = tk.Frame(
             self, 
-            height=600,
-            width=800,
+            height=700,
+            width=1650,
             bd=5,
             
-            bg="blue")
-        bodyFrame.pack(side='top', pady=(10,0))
+            bg="white")
+        bodyFrame.pack(expand = True)
         bodyFrame.pack_propagate(0)
         # bodyFrame.configure(width=800)
 
         aboutUsDescLabel = tk.Label(bodyFrame, 
-            text="According to all known laws of aviation, \n there is no way a bee should be able to fly. \nIts wings are too small to get its fat little body off the ground. The bee, of course,\n flies anyway because bees don't care what humans think is impossible.\n Yellow, black. Yellow, black. Yellow, black.\n Yellow, black. Ooh, black and yellow!\n Let's shake it up a little. Barry! Breakfast is ready! Ooming! Hang on a second. Hello? - Barry? - Adam? - Oan you believe this is happening? - I can't. I'll pick you up. Looking sharp. Use the stairs. Your father paid good money for those. Sorry. I'm excited. Here's the graduate. We're very proud of you, son. A perfect report card, all B's. Very proud. Ma! I got a thing going here. - You got lint on your fuzz. - Ow! That's me! - Wave to us! We'll be in row 118,000. - Bye! Barry, I told you, stop flying in", 
+            text="Hello! We are a group of Secondary Four students from the School of Science and Technology, Singapore. \n Alfred Kang (S401 2022), Lai Wan Lin (S401 2022), Laavanya Sundaravel (S401 2022)\n SimplEvents is a beginner's app made for our coursework project, aimed to make planning events simpler\n We used Python's Tkinter to create this application, and Visual Studio Code as our main text editor\n SimplEvents is most likely not going to be updated again, despite the many UI and code problems, and we do apologize for that.\n However, do expect more and better products from us, as we continue to hone our programming skills\n Thank you for using SimplEvents!", 
             bg="white",
             bd=2,
             fg='black',
