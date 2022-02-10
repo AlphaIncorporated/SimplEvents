@@ -39,16 +39,16 @@ def calendarScreen(self):
         firstdaycolumn = 6
     
     #back button
-    backbutton = Button(self.calendarframe, bg = 'white', text = '< Back', font = ("Ariel, 30"), fg = 'blue', borderwidth = 0 ,command=(lambda: back(self, self.calendarframe)))
-    backbutton.grid(row = 0, column = 0)
+    backbutton = Button(self.calendarframe, text = '< Back', font = ("Ariel, 30"), bg = 'white', fg = 'blue', borderwidth = 0 ,command=(lambda: back(self, self.calendarframe)))
+    backbutton.grid(row = 0, column = 0, sticky = '')
 
     #Calendar Title
     calendartitle = Label(self.calendarframe, text = "Calendar", font = ("Ariel, 50"), bg = 'white', fg = "black")
     calendartitle.grid(row = 0, column = 1, columnspan=4, pady = 10)
 
     #neweventbutton
-    calendartoneweventbutton = Button(self.calendarframe, text = "New Event", width = 44, height = 5, padx = 5,command = lambda: switchtoneweventframe(self))
-    calendartoneweventbutton.grid(row = 0, column = 5, columnspan=2, sticky = E, pady = 10)
+    calendartoneweventbutton = Button(self.calendarframe, text = "New Event", width = 35, height = 5, padx = 5,command = lambda: switchtoneweventframe(self))
+    calendartoneweventbutton.grid(row = 0, column = 5, columnspan=2, sticky = '', pady = 10)
 
     #Day of the Week Label
     calendardayslabelmonday = Label(self.calendarframe, text = 'Monday', font = ("Ariel, 20"), bg = 'white', fg = "black")
@@ -88,7 +88,7 @@ def calendarScreen(self):
         calendarcolumn = firstdaycolumn
         for x in range(1, 29):
             day[x] = x + 1
-            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda: createEventDayFrame(self, self.calendarframe))
+            day[x] = Button(self.calendarframe, text = x, width = 20, height = 8, borderwidth = 0, bg = 'white', command = lambda: createEventDayFrame(self, self.calendarframe))
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
                 calendarcolumn = 0

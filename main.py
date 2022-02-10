@@ -44,7 +44,7 @@ neweventimg = PhotoImage(file = "./pictures/neweventbuttonpic.png")
 aboutusimg = PhotoImage(file = "./pictures/aboutusbuttonpic.png")
  
 calendarbutton = Button(root.uiFrame, text = "Calendar", width = 965, height = 1135, borderwidth=0, image = calendarimg, bg = 'white', command = lambda: switchtocalendarframe(root))
-calendarbutton.grid(row = 0, column = 0, rowspan = 2)
+calendarbutton.grid(row = 0, column = 0, rowspan = 2 )
 neweventbutton = Button(
     root.uiFrame,
     text = "New Event",
