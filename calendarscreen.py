@@ -8,7 +8,7 @@ def calendarScreen(self):
         self.uiFrame.pack(expand = True, fill = BOTH)
         calendarframe.pack_forget()
     def switchtoneweventframe(self):
-        self.uiFrame.pack_forget()
+        
         newEventFormObj = newEventForm(self).place(in_=self, anchor="c", relx=.5, rely=.5, relheight=1, relwidth=1)
         newEventFormObj()
     

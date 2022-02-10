@@ -26,11 +26,11 @@ def switchtocalendarframe(root):
     root.uiFrame.pack_forget()
     calendarScreen(root)
 def switchtoneweventframe(root):
-    root.uiFrame.pack_forget()
+    
     newEventFormObj = newEventForm(root).place(in_=root, anchor="c", relx=.5, rely=.5, relheight=1, relwidth=1)
     newEventFormObj()
 def switchToAboutUsframe(root):
-    root.uiFrame.pack_forget()
+    
     aboutUsObj = aboutUs(root).place(in_=root, anchor="c", relx=.5, rely=.5, relheight=1, relwidth=1)
     
 root.uiFrame.grid_rowconfigure(0, weight=0) # For row 0

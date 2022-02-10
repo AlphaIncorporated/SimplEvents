@@ -5,7 +5,7 @@ from tkinter import IntVar, messagebox
 
 class newEventForm(tk.Frame):
 
-    def prevPage(self, newEventForm):
+    def prevPage(self):
         #self.uiFrame.pack(expand = True, fill = BOTH)
         self.destroy()
 
