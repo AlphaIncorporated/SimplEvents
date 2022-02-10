@@ -72,7 +72,7 @@ def calendarScreen(self):
     calendartitle.grid(row = 0, column = 1, columnspan=4, pady = 10)
 
     #neweventbutton
-    calendartoneweventbutton = Button(self.calendarframe, text = "New Event", width = 35, height = 5, padx = 5,command = lambda: switchtoneweventframe(self))
+    calendartoneweventbutton = Button(self.calendarframe, text = "New Event", width = 35, height = 5, padx = 5, command = lambda: switchtoneweventframe(self))
     calendartoneweventbutton.grid(row = 0, column = 5, columnspan=2, sticky = '', pady = 10)
 
     #Day of the Week Label
@@ -131,7 +131,7 @@ def calendarScreen(self):
         calendarcolumn = firstdaycolumn
         for x in range(1, 30):
             day[x] = x + 1
-            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda: createEventDayFrame(self, self.calendarframe))
+            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda buttonname = x : createEventDayFrame(self, buttonname))
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
                 calendarcolumn = 0
@@ -147,7 +147,7 @@ def calendarScreen(self):
         calendarcolumn = firstdaycolumn
         for x in range(1, 31):
             day[x] = x + 1
-            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda: createEventDayFrame(self, self.calendarframe))
+            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda buttonname = x : createEventDayFrame(self, buttonname))
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
                 calendarcolumn = 0
@@ -163,7 +163,7 @@ def calendarScreen(self):
         calendarcolumn = firstdaycolumn
         for x in range(1, 32):
             day[x] = x + 1
-            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda: createEventDayFrame(self, self.calendarframe))
+            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda buttonname = x : createEventDayFrame(self, buttonname))
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
                 calendarcolumn = 0
