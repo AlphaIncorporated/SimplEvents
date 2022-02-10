@@ -17,11 +17,57 @@ import tkinter as tk
 #function
 class budgetClss(tk.Frame):
     #class constructor
+    def prevPage(self):
+        self.destroy()
+        
     def __init__(self,parent):
         tk.Frame.__init__(self,parent)
         self.parent = parent
         self.configure(background="white")
         
+        #formatting
+        headerFrame = tk.Frame(
+            self, 
+            height=150,
+            bg="white",
+            highlightthickness=2)
+        headerFrame.pack(side='top', fill='x')
+        headerFrame.configure(height=headerFrame["height"],width=headerFrame["width"])
+        headerFrame.pack_propagate(0)
+        titleLbl =  tk.Label(
+            headerFrame,
+            text='Budget',
+            bg="white",
+            fg='black',
+            font=("Arial", 58))
+        titleLbl.pack(side='bottom')
+        backBtn = tk.Button(
+            headerFrame,
+            text='Back',
+            bg="white",
+            fg='blue',
+            font=("Arial", 42),
+            command=self.prevPage)
+        backBtn.place(anchor='nw', x=20, y=20)
+        bodyFrame = tk.Frame(
+            self, 
+            height=700,
+            width=1650,
+            bd=5,
+            
+            bg="white")
+        bodyFrame.pack(expand = True)
+        bodyFrame.pack_propagate(0)
+#======================================================================================================
+        def savesave():
+            plt.pie(dataValues, labels=dataNameList)
+            circle = plt.Circle((0, 0), radius=0.7, facecolor='white')
+            plt.axis('equal')
+            plt.gca().add_artist(circle)
+            plt.legend(dataNameList, loc='lower right')
+            plt.show()
+
+
         def saveData1():
             a=dataValue1.get()
             dataValues.append(a)
@@ -54,79 +100,42 @@ class budgetClss(tk.Frame):
         dataValues=[]
         
         #data1
-        label1 = tk.Label(self,text = "Food & Catering", bg = 'white', font = ("Ariel, 30"))
-        dataValue1 = tk.Entry(self,highlightthickness=2, bg = 'white',fg='black', font = ("Ariel, 30"))
-
-        plusButton1 = tk.Button(self, text="Save", command=saveData1, font = ("Ariel, 20"))
+        label1 = tk.Label(bodyFrame,text = "Food & Catering", bg = 'white', font = ("Ariel, 30"))
+        dataValue1 = tk.Entry(bodyFrame,highlightthickness=2, bg = 'white',fg='black', font = ("Ariel, 30"))
+        plusButton1 = tk.Button(bodyFrame, text="Save", command=saveData1, font = ("Ariel, 20"))
 
         #data2
-        label2 = tk.Label(self,text = "Contingency", bg = 'white', font = ("Ariel, 30"))
-        dataValue2 = tk.Entry(self,highlightthickness=2, background='white',fg='black', font = ("Ariel, 30"))
-
-        plusButton2 = tk.Button(self, text="Save", command=saveData2, font = ("Ariel, 20"))
-        #temp comment for tkinter to stop screaming pls
+        label2 = tk.Label(bodyFrame,text = "Contingency", bg = 'white', font = ("Ariel, 30"))
+        dataValue2 = tk.Entry(bodyFrame,highlightthickness=2, background='white',fg='black', font = ("Ariel, 30"))
+        plusButton2 = tk.Button(bodyFrame, text="Save", command=saveData2, font = ("Ariel, 20"))
 
         #data3
-        label3 = tk.Label(self,text = "Decoration", bg = 'white', font = ("Ariel, 30"))
-        dataValue3 = tk.Entry(self,highlightthickness=2, background='white',fg='black', font = ("Ariel, 30"))
-
-
-        
-
-        plusButton3 = tk.Button(self, text="Save", command=saveData3, font = ("Ariel, 20"))
-
+        label3 = tk.Label(bodyFrame,text = "Decoration", bg = 'white', font = ("Ariel, 30"))
+        dataValue3 = tk.Entry(bodyFrame,highlightthickness=2, background='white',fg='black', font = ("Ariel, 30"))
+        plusButton3 = tk.Button(bodyFrame, text="Save", command=saveData3, font = ("Ariel, 20"))
 
         #data4
-        label4 = tk.Label(self,text = "Entertainment", bg = 'white', font = ("Ariel, 30"))
-        dataValue4 = tk.Entry(self,highlightthickness=2, background='white',fg='black', font = ("Ariel, 30"))
-
-
-        
-
-        plusButton4 = tk.Button(self, text="Save", command=saveData4, font = ("Ariel, 20"))
-
+        label4 = tk.Label(bodyFrame,text = "Entertainment", bg = 'white', font = ("Ariel, 30"))
+        dataValue4 = tk.Entry(bodyFrame,highlightthickness=2, background='white',fg='black', font = ("Ariel, 30"))
+        plusButton4 = tk.Button(bodyFrame, text="Save", command=saveData4, font = ("Ariel, 20"))
 
         #data5
-        label5 = tk.Label(self,text = "Venue", bg = 'white', font = ("Ariel, 30"))
-        dataValue5 = tk.Entry(self,highlightthickness=2, background='white',fg='black', font = ("Ariel, 30"))
-
-
-        
-
-        plusButton5 = tk.Button(self, text="Save", command=saveData5, font = ("Ariel, 20"))
-
+        label5 = tk.Label(bodyFrame,text = "Venue", bg = 'white', font = ("Ariel, 30"))
+        dataValue5 = tk.Entry(bodyFrame,highlightthickness=2, background='white',fg='black', font = ("Ariel, 30"))
+        plusButton5 = tk.Button(bodyFrame, text="Save", command=saveData5, font = ("Ariel, 20"))
 
         #data6
-        label6 = tk.Label(self,text = "Photography/ Videography", bg = 'white', font = ("Ariel, 30"))
-        dataValue6 = tk.Entry(self,highlightthickness=2, background='white',fg='black', font = ("Ariel, 30"))
-
-
-        
-
-        plusButton6 = tk.Button(self, text="Save", command=saveData6, font = ("Ariel, 20"))
+        label6 = tk.Label(bodyFrame,text = "Photography/ Videography", bg = 'white', font = ("Ariel, 30"))
+        dataValue6 = tk.Entry(bodyFrame,highlightthickness=2, background='white',fg='black', font = ("Ariel, 30"))
+        plusButton6 = tk.Button(bodyFrame, text="Save", command=saveData6, font = ("Ariel, 20"))
 
 
         #data7
-        label7 = tk.Label(self,text = "Gifts", bg = 'white', font = ("Ariel, 30"))
-        dataValue7 = tk.Entry(self,highlightthickness=2, background='white',fg='black', font = ("Ariel, 30"))
+        label7 = tk.Label(bodyFrame,text = "Gifts", bg = 'white', font = ("Ariel, 30"))
+        dataValue7 = tk.Entry(bodyFrame,highlightthickness=2, background='white',fg='black', font = ("Ariel, 30"))
+        plusButton7 = tk.Button(bodyFrame, text="Save", command=saveData7, font = ("Ariel, 20"))
 
-
-        
-
-        plusButton7 = tk.Button(self, text="Save", command=saveData7, font = ("Ariel, 20"))
-
-        def savesave():
-            plt.pie(dataValues, labels=dataNameList)
-            circle = plt.Circle((0, 0), radius=0.7, facecolor='white')
-            plt.axis('equal')
-            plt.gca().add_artist(circle)
-            plt.legend(dataNameList, loc='lower right')
-            plt.show()
-
-
-
-        sussysave= tk.Button(self, text="Update Pie Chart", font = ("Ariel, 30"), command=savesave, )
-
+        sussysave= tk.Button(bodyFrame, text="Update Pie Chart", font = ("Ariel, 30"), command=savesave, )
 
         label1.grid(row=0, column=0, pady=2)
         label2.grid(row=1, column=0, pady=2)
