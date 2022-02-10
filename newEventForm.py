@@ -51,7 +51,6 @@ class newEventForm(tk.Frame):
                 relheight=1, 
                 relwidth=1)
         def saveForm():
-            print('saveForm')
             #creating dict obj containing the users input
             formData = {}
             formData['eventName']=nameEntry.get() 
@@ -108,7 +107,6 @@ class newEventForm(tk.Frame):
 
         #defines function for selecting whether an event is multiple days 
         def isMultDayFunc():
-            print("isMultDay")
             if (isMultDay.get()):
                 dateStr.set("Start Date:")
                 #creating global label and global entry
