@@ -17,13 +17,14 @@ import tkinter as tk
 #function
 class budgetClss(tk.Frame):
     #class constructor
-    def prevPage(self):
-        self.destroy()
-        
+    
     def __init__(self,parent):
         tk.Frame.__init__(self,parent)
         self.parent = parent
         self.configure(background="white")
+        
+        def prevPage(self,parent):
+            parent.destroy()
         
         #formatting
         headerFrame = tk.Frame(
@@ -47,7 +48,7 @@ class budgetClss(tk.Frame):
             bg="white",
             fg='blue',
             font=("Arial", 42),
-            command=self.prevPage)
+            command=lambda: prevPage(self,parent))
         backBtn.place(anchor='nw', x=20, y=20)
         bodyFrame = tk.Frame(
             self, 
