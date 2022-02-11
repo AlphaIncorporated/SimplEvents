@@ -47,6 +47,8 @@ class newEventForm(tk.Frame):
         
         #defines function  for saving form
         def switchBudgetFrame(self):
+            #amogus
+            
             budgetObj = budgetClss(self).place(
                 in_=self, 
                 anchor="c", 
@@ -54,6 +56,8 @@ class newEventForm(tk.Frame):
                 rely=.5, 
                 relheight=1, 
                 relwidth=1)
+            messagebox.showerror(title="Disclaimer:",
+                            message="Disclaimer:\n1. Your budget will not be saved internally.\n If you wish to save, please save your pie chart as a file before closing the window.\n2. Please close pie chart window before attempting to press back button.")
         def saveForm():
             #creating dict obj containing the users input
             formData = {}
