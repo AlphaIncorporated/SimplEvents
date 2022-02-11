@@ -111,16 +111,19 @@ class newEventForm(tk.Frame):
 
         #defines function for selecting whether an event is multiple days 
         def isMultDayFunc():
+            global date2Label
+            global optionMenu2Var
+            global date2OptionMenu
             if (isMultDay.get()):
                 dateStr.set("Start Date:")
                 #creating global label and global entry
-                global date2Label
+                
                 date2Label = tk.Label(bodyFrame, text="End Date:",
                     bg="white",
                     bd=2,
                     fg='black',
-                    font=("Arial", 22))
-                global optionMenu2Var
+                    font=("Arial", 15))
+                
                 optionMenu2Var = tk.StringVar(self) 
                 optionMenu2Var.set("1")
                 date2OptionMenu= tk.OptionMenu(bodyFrame, optionMenu2Var, *daysList)
@@ -143,7 +146,7 @@ class newEventForm(tk.Frame):
         #label for title to indicate to user which  page of app they are on
         titleLbl =  tk.Label(
             headerFrame,
-            text='NEW EVENT',
+            text='New Event',
             bg="white",
             fg='black',
             font=("Arial", 58))
