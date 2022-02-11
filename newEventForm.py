@@ -69,7 +69,6 @@ class newEventForm(tk.Frame):
                 formData['endDate']=optionMenu1Var.get()
 
             if int(formData['startDate']) > int(formData['endDate']):
-                print("bong")
                 msg = "You cannot set the start date later than the end date, please retry."
                 messagebox.showerror(title="Validation Error",
                     message=msg)

@@ -17,6 +17,7 @@ from tkinter import *
 from calendar import *
 import calendar
 import json
+import os
 from datetime import datetime
 from  newEventForm  import newEventForm
 
@@ -85,7 +86,7 @@ def calendarScreen(self):
     backbutton.grid(row = 0, column = 0, sticky = '')
 
     #Calendar Title
-    calendartitle = Label(self.calendarframe, text = "Calendar(Current Month)", font = ("Ariel, 30"), bg = 'white', fg = "black")
+    calendartitle = Label(self.calendarframe, text = "Calendar", font = ("Ariel, 50"), bg = 'white', fg = "black")
     calendartitle.grid(row = 0, column = 1, columnspan=4, pady = 10)
 
     #neweventbutton
@@ -139,7 +140,7 @@ def calendarScreen(self):
         eventDayFrameBack = Button(eventDayFrame, text = "< Back", bg = 'white', fg = 'blue', font = ("Ariel, 25"), borderwidth=0, command = lambda: eventDayFrameBackFunc(self, eventDayFrame))
         eventDayFrameBack.grid(row = 0, column = 0, sticky = W)
 
-        eventsDate = Label(eventDayFrame, text = "Events on "+str(self.buttonpressed)+'th', bg = 'white', fg = 'black', font = ("Ariel, 30"))
+        eventsDate = Label(eventDayFrame, text = "Events on "+str(self.buttonpressed), bg = 'white', fg = 'black', font = ("Ariel, 30"))
         eventsDate.grid(row = 1, column = 0, columnspan = 8, pady = 20, sticky = '')
         eventsInDay = Label(
             eventDayFrame, 
@@ -157,6 +158,12 @@ def calendarScreen(self):
         day = dict()
         calendarrow = 3
         calendarcolumn = firstdaycolumn
+        if datetime.now().day > 27:
+            jsonPath = './database/eventCollection.json'
+            os.remove(jsonPath)
+            if not os.path.isfile(jsonPath): ##utiliseies is 
+                with open("./database/eventCollection.json", "x") as outfile: ##outfile is file object 
+                    json.dump({"events": []}, outfile)
         for x in range(1, 29):
             day[x] = x + 1
             day[x] = Button(self.calendarframe, 
@@ -165,7 +172,6 @@ def calendarScreen(self):
             height = 8, 
             borderwidth = 0, 
             bg = 'white', 
-            font=("Arial", 15),
             command = lambda buttonname = x : createEventDayFrame(self, buttonname))
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
@@ -180,9 +186,16 @@ def calendarScreen(self):
         day = dict()
         calendarrow = 3
         calendarcolumn = firstdaycolumn
+        if datetime.now().day > 28:
+            print('clear json')
+            jsonPath = './database/eventCollection.json'
+            os.remove(jsonPath)
+            if not os.path.isfile(jsonPath): ##utiliseies is 
+                with open("./database/eventCollection.json", "x") as outfile: ##outfile is file object 
+                    json.dump({"events": []}, outfile)
         for x in range(1, 30):
             day[x] = x + 1
-            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', font=("Arial", 15), command = lambda buttonname = x : createEventDayFrame(self, buttonname))
+            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda buttonname = x : createEventDayFrame(self, buttonname))
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
                 calendarcolumn = 0
@@ -196,9 +209,16 @@ def calendarScreen(self):
         day = dict()
         calendarrow = 3
         calendarcolumn = firstdaycolumn
+        if datetime.now().day > 29:
+            print('clear json')
+            jsonPath = './database/eventCollection.json'
+            os.remove(jsonPath)
+            if not os.path.isfile(jsonPath): ##utiliseies is 
+                with open("./database/eventCollection.json", "x") as outfile: ##outfile is file object 
+                    json.dump({"events": []}, outfile)
         for x in range(1, 31):
             day[x] = x + 1
-            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', font=("Arial", 15), command = lambda buttonname = x : createEventDayFrame(self, buttonname))
+            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda buttonname = x : createEventDayFrame(self, buttonname))
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
                 calendarcolumn = 0
@@ -212,6 +232,13 @@ def calendarScreen(self):
         day = dict()
         calendarrow = 3
         calendarcolumn = firstdaycolumn
+        if datetime.now().day > 30:
+            print('clear json')
+            jsonPath = './database/eventCollection.json'
+            os.remove(jsonPath)
+            if not os.path.isfile(jsonPath): ##utiliseies is 
+                with open("./database/eventCollection.json", "x") as outfile: ##outfile is file object 
+                    json.dump({"events": []}, outfile)
         for x in range(1, 32):
             day[x] = x + 1
             day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda buttonname = x : createEventDayFrame(self, buttonname))
