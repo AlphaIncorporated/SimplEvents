@@ -85,7 +85,7 @@ def calendarScreen(self):
     backbutton.grid(row = 0, column = 0, sticky = '')
 
     #Calendar Title
-    calendartitle = Label(self.calendarframe, text = "Calendar", font = ("Ariel, 50"), bg = 'white', fg = "black")
+    calendartitle = Label(self.calendarframe, text = "Calendar(Current Month)", font = ("Ariel, 30"), bg = 'white', fg = "black")
     calendartitle.grid(row = 0, column = 1, columnspan=4, pady = 10)
 
     #neweventbutton
@@ -139,7 +139,7 @@ def calendarScreen(self):
         eventDayFrameBack = Button(eventDayFrame, text = "< Back", bg = 'white', fg = 'blue', font = ("Ariel, 25"), borderwidth=0, command = lambda: eventDayFrameBackFunc(self, eventDayFrame))
         eventDayFrameBack.grid(row = 0, column = 0, sticky = W)
 
-        eventsDate = Label(eventDayFrame, text = "Events on "+str(self.buttonpressed), bg = 'white', fg = 'black', font = ("Ariel, 30"))
+        eventsDate = Label(eventDayFrame, text = "Events on "+str(self.buttonpressed)+'th', bg = 'white', fg = 'black', font = ("Ariel, 30"))
         eventsDate.grid(row = 1, column = 0, columnspan = 8, pady = 20, sticky = '')
         eventsInDay = Label(
             eventDayFrame, 
