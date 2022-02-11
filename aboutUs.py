@@ -51,7 +51,7 @@ class aboutUs(tk.Frame):
         titleLbl.pack(side='bottom')
         backBtn = tk.Button(
             headerFrame,
-            text='Back',
+            text='< Back',
             bg="white",
             fg='blue',
             font=("Arial", 42),

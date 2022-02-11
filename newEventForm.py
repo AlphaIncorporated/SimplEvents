@@ -55,7 +55,7 @@ class newEventForm(tk.Frame):
                 relheight=1, 
                 relwidth=1)
             messagebox.showerror(title="Disclaimer:",
-                            message="Disclaimer:\n1. Your budget will not be saved internally.\n If you wish to save, please save your pie chart as a file before closing the window.\n\n2. Please close pie chart window before attempting to press back button.")
+                            message="Disclaimer:\n1. Your budget will not be saved internally.\n If you wish to save, please save your pie chart as a file before closing the window.\n2. Please close pie chart window before attempting to press back button.")
         def saveForm():
             #creating dict obj containing the users input
             formData = {}
@@ -157,7 +157,7 @@ class newEventForm(tk.Frame):
         #button to return to previous page
         backBtn = tk.Button(
             headerFrame,
-            text='Back',
+            text='< Back',
             bg="white",
             fg='blue',
             font=("Arial", 42),
@@ -250,7 +250,7 @@ class newEventForm(tk.Frame):
         # button to save the user inputted form data into database and return to previous page
         saveBtn = tk.Button(
             self,
-            text='Save',
+            text='Save >',
             bg="white",
             fg='orange',
             font=("Arial", 42),

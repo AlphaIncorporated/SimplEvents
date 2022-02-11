@@ -165,6 +165,7 @@ def calendarScreen(self):
             height = 8, 
             borderwidth = 0, 
             bg = 'white', 
+            font=("Arial", 15),
             command = lambda buttonname = x : createEventDayFrame(self, buttonname))
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
@@ -181,7 +182,7 @@ def calendarScreen(self):
         calendarcolumn = firstdaycolumn
         for x in range(1, 30):
             day[x] = x + 1
-            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda buttonname = x : createEventDayFrame(self, buttonname))
+            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', font=("Arial", 15), command = lambda buttonname = x : createEventDayFrame(self, buttonname))
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
                 calendarcolumn = 0
@@ -197,7 +198,7 @@ def calendarScreen(self):
         calendarcolumn = firstdaycolumn
         for x in range(1, 31):
             day[x] = x + 1
-            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', command = lambda buttonname = x : createEventDayFrame(self, buttonname))
+            day[x] = Button(self.calendarframe, text = x, width = 22, height = 9, borderwidth = 0, bg = 'white', font=("Arial", 15), command = lambda buttonname = x : createEventDayFrame(self, buttonname))
             if calendarcolumn > 6:
                 calendarrow = calendarrow + 2
                 calendarcolumn = 0
