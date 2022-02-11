@@ -18,3 +18,5 @@ If SimplEvents is not taking up your entire screen, the app may not look as inte
 
 App looks better on Windows as MacOS has a tkinter issue where it does not allow for customization of buttons
 
+Currently, you are not able to switch between months, and are only allowed to set events for the current month
+
