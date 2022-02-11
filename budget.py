@@ -75,49 +75,49 @@ class budgetClss(tk.Frame):
                 dataValues.append(a)
                 dataNameList.append("Food & Catering") 
             else:
-                tk.messagebox.showerror(title="showerror",message='Please enter an integer value >:(')
+                tk.messagebox.showerror(title="showerror",message='Please enter an integer value into the budget.')
         def saveData2():
             b = dataValue2.get()
             if b.isdigit()==True:
                 dataValues.append(b)
                 dataNameList.append("Contingency") 
             else:
-                tk.messagebox.showerror(title="showerror",message='Please enter an integer value >:(')
+                tk.messagebox.showerror(title="showerror",message='Please enter an integer value into the budget.')
         def saveData3():
             c = dataValue3.get()
             if c.isdigit()==True:
                 dataValues.append(c)
                 dataNameList.append("Decoration") 
             else:
-                tk.messagebox.showerror(title="showerror",message='Please enter an integer value >:(')
+                tk.messagebox.showerror(title="showerror",message='Please enter an integer value into the budget.')
         def saveData4():
             d = dataValue4.get()
             if d.isdigit()==True:
                 dataValues.append(d)
                 dataNameList.append("Entertainment") 
             else:
-                tk.messagebox.showerror(title="showerror",message='Please enter an integer value >:(')
+                tk.messagebox.showerror(title="showerror",message='Please enter an integer value into the budget.')
         def saveData5():
             e = dataValue5.get()
             if e.isdigit()==True:
                 dataValues.append(e)
                 dataNameList.append("Venue") 
             else:
-                tk.messagebox.showerror(title="showerror",message='Please enter an integer value >:(')
+                tk.messagebox.showerror(title="showerror",message='Please enter an integer value into the budget.')
         def saveData6():
             f = dataValue6.get()
             if f.isdigit()==True:
                 dataValues.append(f)
                 dataNameList.append("Photography/ Videography") 
             else:
-                tk.messagebox.showerror(title="showerror",message='Please enter an integer value >:(')
+                tk.messagebox.showerror(title="showerror",message='Please enter an integer value into the budget.')
         def saveData7():
             g = dataValue7.get()
             if g.isdigit()==True:
                 dataValues.append(g)
                 dataNameList.append("Gifts") 
             else:
-                tk.messagebox.showerror(title="showerror",message='Please enter an integer value >:(')
+                tk.messagebox.showerror(title="showerror",message='Please enter an integer value into the budget.')
         dataNameList = []
         dataValues=[]
         

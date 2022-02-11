@@ -47,8 +47,6 @@ class newEventForm(tk.Frame):
         
         #defines function  for saving form
         def switchBudgetFrame(self):
-            #amogus
-            
             budgetObj = budgetClss(self).place(
                 in_=self, 
                 anchor="c", 
@@ -57,7 +55,7 @@ class newEventForm(tk.Frame):
                 relheight=1, 
                 relwidth=1)
             messagebox.showerror(title="Disclaimer:",
-                            message="Disclaimer:\n1. Your budget will not be saved internally.\n If you wish to save, please save your pie chart as a file before closing the window.\n2. Please close pie chart window before attempting to press back button.")
+                            message="Disclaimer:\n1. Your budget will not be saved internally.\n If you wish to save, please save your pie chart as a file before closing the window.\n\n2. Please close pie chart window before attempting to press back button.")
         def saveForm():
             #creating dict obj containing the users input
             formData = {}
@@ -69,6 +67,13 @@ class newEventForm(tk.Frame):
                 formData['endDate']=optionMenu2Var.get()
             else:
                 formData['endDate']=optionMenu1Var.get()
+
+            if int(formData['startDate']) > int(formData['endDate']):
+                print("bong")
+                msg = "You cannot set the start date later than the end date, please retry."
+                messagebox.showerror(title="Validation Error",
+                    message=msg)
+                return
             #makes new eventCollection.json file if there isn't already an existing one
             if not os.path.isfile("./database/eventCollection.json"): ##utiliseies is 
                 with open("./database/eventCollection.json", "x") as outfile: ##outfile is file object 
@@ -82,6 +87,7 @@ class newEventForm(tk.Frame):
                     if (event["eventName"]==formData['eventName']):
                         msg = "Event with name "+formData['eventName']+" already exists!"
                         messagebox.showerror(title="Validation Error",
+                        ######remove budget's >:( face )
                             message=msg)
                         return
             # adds the new event details to the database
@@ -100,13 +106,6 @@ class newEventForm(tk.Frame):
                 #removes the old data after the file pointer
                 f.truncate()   
                  
-            # switchToBudgetFrame = tk.Button(bodyFrame, text = 'Plan Budget', bg = 'white', fg = 'black', font=("Arial", 22))
-            # switchToBudgetFrame.grid(row = 0, column = 4, pady = 5)
-            #closes form
-            # self.destroy()
-            # budgetWindow(newEventForm)
-
-            #its not a window anymore, change this into a func later and define it at top
             switchBudgetFrame(self)
             
             
