@@ -38,7 +38,11 @@ class newEventForm(tk.Frame):
         isMultDay = tk.IntVar()
         dateStr = tk.StringVar()
         dateStr.set("Date:")
-        
+        daysList = [
+            "1","2","3","4","5","6","7","8","9","10",
+            "11","12","13","14","15","16","17","18","19","20",
+            "21","22","23","24","25","26","27","28","29","30","31"
+        ]
         ##define function
         
         #defines function  for saving form
@@ -121,7 +125,7 @@ class newEventForm(tk.Frame):
                 global optionMenu2Var
                 optionMenu2Var = tk.StringVar(self) 
                 optionMenu2Var.set("1")
-                date2OptionMenu= tk.OptionMenu(bodyFrame, optionMenu2Var, "1","2","3")
+                date2OptionMenu= tk.OptionMenu(bodyFrame, optionMenu2Var, *daysList)
                 #positions the label and entry into the form
                 date2Label.grid(row=2,column=2, sticky='w', pady=5)
                 date2OptionMenu.grid(row=2,column=3, sticky='we', pady=5)
@@ -218,7 +222,7 @@ class newEventForm(tk.Frame):
         optionMenu1Var = tk.StringVar(self) 
         optionMenu1Var.set("1")
         date1OptionMenu = tk.OptionMenu(bodyFrame,
-            optionMenu1Var, "1",  "2", "3")
+            optionMenu1Var, *daysList)
         date1Label.grid(row=2,column=0, sticky='w', pady=5)
         date1OptionMenu.grid(row=2,column=1, sticky='we', pady=5)
         # ROW 3-------------------------------------------------------------------------------------------------
