@@ -12,7 +12,7 @@ features:
 '''
 import matplotlib.pyplot as plt
 import tkinter as tk
-
+from tkinter import messagebox
 #defining them lists
 #function
 class budgetClss(tk.Frame):
@@ -64,38 +64,59 @@ class budgetClss(tk.Frame):
             circle = plt.Circle((0, 0), radius=0.7, facecolor='white')
             plt.axis('equal')
             plt.gca().add_artist(circle)
-            plt.legend(dataNameList, loc='lower right')
+            plt.legend(dataNameList, loc='lower right',bbox_to_anchor=(1,0),bbox_transform=plt.gcf().transFigure)
             plt.show()
 
 
         def saveData1():
             a=dataValue1.get()
-            dataValues.append(a)
-            dataNameList.append("Food & Catering")
+            if a.isdigit()==True:
+                dataValues.append(a)
+                dataNameList.append("Food & Catering") 
+            else:
+                tk.messagebox.showerror(title="showerror",message='Please enter an integer value >:(')
         def saveData2():
             b = dataValue2.get()
-            dataValues.append(b)
-            dataNameList.append("Contingency")
+            if b.isdigit()==True:
+                dataValues.append(b)
+                dataNameList.append("Contingency") 
+            else:
+                tk.messagebox.showerror(title="showerror",message='Please enter an integer value >:(')
         def saveData3():
             c = dataValue3.get()
-            dataValues.append(c)
-            dataNameList.append("Decoration")
+            if c.isdigit()==True:
+                dataValues.append(c)
+                dataNameList.append("Decoration") 
+            else:
+                tk.messagebox.showerror(title="showerror",message='Please enter an integer value >:(')
         def saveData4():
             d = dataValue4.get()
-            dataValues.append(d)
-            dataNameList.append("Entertainment")
+            if d.isdigit()==True:
+                dataValues.append(d)
+                dataNameList.append("Entertainment") 
+            else:
+                tk.messagebox.showerror(title="showerror",message='Please enter an integer value >:(')
         def saveData5():
             e = dataValue5.get()
-            dataValues.append(e)
-            dataNameList.append("Venue")
+            if e.isdigit()==True:
+                dataValues.append(e)
+                dataNameList.append("Venue") 
+            else:
+                tk.messagebox.showerror(title="showerror",message='Please enter an integer value >:(')
         def saveData6():
-            f = dataValue2.get()
-            dataValues.append(f)
-            dataNameList.append("Photography/ Videography")
+            f = dataValue6.get()
+            if f.isdigit()==True:
+                dataValues.append(f)
+                dataNameList.append("Photography/ Videography") 
+            else:
+                tk.messagebox.showerror(title="showerror",message='Please enter an integer value >:(')
         def saveData7():
             g = dataValue7.get()
-            dataValues.append(g)
-            dataNameList.append("Gifts")
+            if g.isdigit()==True:
+                dataValues.append(g)
+                dataNameList.append("Gifts") 
+            else:
+                tk.messagebox.showerror(title="showerror",message='Please enter an integer value >:(')
         dataNameList = []
         dataValues=[]
         
