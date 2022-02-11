@@ -7,10 +7,9 @@ Made with ❤️ by Alfred Kang, Laavanya Sundaravel, Lai Wan Lin using Python, 
 
 ### **Installation Guide**
 1. Open Terminal / Command Prompt
-2. Run these commands in terminal / command prompt: 
+2. Run these commands in terminal / command prompt(please make sure pip is installed on your device first): 
     - pip install tkinter
     - pip install matplotlib
-    - from tkinter import messagebox
 
 ### **Disclaimer:**
 If SimplEvents is not taking up your entire screen, the app may not look as intended
