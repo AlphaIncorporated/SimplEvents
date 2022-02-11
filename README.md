@@ -7,7 +7,7 @@ Made with ❤️ by Alfred Kang, Laavanya Sundaravel, Lai Wan Lin using Python, 
 
 ### **Installation Guide**
 1. Open Terminal / Command Prompt
-2. Make sure you have 'pip' installed, and run these commands: 
+2. Run these commands in terminal / command prompt: 
     - pip install tkinter
     - pip install matplotlib
 
