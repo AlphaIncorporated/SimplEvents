@@ -112,16 +112,15 @@ def calendarScreen(self):
     def createEventDayFrame(self, buttonname):
         self.buttonpressed = buttonname
         # print(self.buttonpressed)
-        print(buttonname)
         self.calendarframe.pack_forget()
         eventDayFrame = Frame(self.mainFrame, bg = 'white')
         eventDayFrame.pack()
         
-        print('retrieveForm')
+        # print('retrieveForm')
         retrievedEvents = ""
         eventRetrieve = {}
         eventRetrieve['startDate']=str(buttonname)
-        print("this start date:",eventRetrieve['startDate'])
+        # print("this start date:",eventRetrieve['startDate'])
         with open("./database/eventCollection.json", 'r') as f:
             eventCollectionData = json.load(f)
             for event in eventCollectionData["events"]:
@@ -130,7 +129,6 @@ def calendarScreen(self):
                 if event['endDate'] != "":
                     if event['startDate'] != "":
                         if buttonname in range(int(event['startDate']),int(event['endDate'])+1):
-                            print("binkbonk")
                             retrievedEvents += "Event:\n" +event["eventName"] +"\n"+"Description:\n"+event["eventDesc"]+"\n\n"
                     
 
@@ -141,7 +139,7 @@ def calendarScreen(self):
         eventDayFrameBack = Button(eventDayFrame, text = "< Back", bg = 'white', fg = 'blue', font = ("Ariel, 25"), borderwidth=0, command = lambda: eventDayFrameBackFunc(self, eventDayFrame))
         eventDayFrameBack.grid(row = 0, column = 0, sticky = W)
 
-        eventsDate = Label(eventDayFrame, text = "Events on "+str(self.buttonpressed)+"th", bg = 'white', fg = 'black', font = ("Ariel, 30"))
+        eventsDate = Label(eventDayFrame, text = "Events on "+str(self.buttonpressed), bg = 'white', fg = 'black', font = ("Ariel, 30"))
         eventsDate.grid(row = 1, column = 0, columnspan = 8, pady = 20, sticky = '')
         eventsInDay = Label(
             eventDayFrame, 

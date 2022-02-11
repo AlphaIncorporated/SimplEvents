@@ -1,13 +1,13 @@
 # SimplEvents
 ###### *events made simple*
-### **Developed by Alfred Kang, Laavanya Sundaravel, Lai Wan Lin**
+### **Developed by AlphaIncorporated**
 Made with ❤️ by Alfred Kang, Laavanya Sundaravel, Lai Wan Lin using Python, Tkinter  
   
   School of Science and Technology Computing Coursework 2022
 
 ### **Installation Guide**
 1. Open Terminal / Command Prompt
-2. Make sure you have 'pip' installed, and run these commands: 
+2. Run these commands in terminal / command prompt: 
     - pip install tkinter
     - pip install matplotlib
 
