@@ -20,3 +20,5 @@ App looks better on Windows as MacOS has a tkinter issue where it does not allow
 
 Currently, you are not able to switch between months, and are only allowed to set events for the current month
 
+### Credits:
+Ethan-Chew - Tester
